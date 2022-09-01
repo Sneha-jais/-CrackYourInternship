@@ -4,12 +4,25 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-     
-        sort(nums.begin(),nums.end());
-  
-        for(int i=0;i<nums.size();i++){
-              cout<<nums[i]<<",";
-        }
-       
+         int n=nums.size();
+        // sort(nums.begin(),nums.end());
+        int low=0;
+        int mid=0;
+        int high=n-1;
+       while(mid<=high){
+           if(nums[mid]==0){
+               swap(nums[low],nums[mid]);
+               low++;
+               mid++;
+           }
+           else if(nums[mid]==1){
+                mid++;
+           }
+           else{
+               swap(nums[high],nums[mid]);
+               high--;
+            
+           }
+       }
     }
 };
